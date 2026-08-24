@@ -4,56 +4,61 @@
   box-sizing: border-box;
 }
 
+/* Configura a rolagem suave tipo "slide" */
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: serif;
   background-color: #fff;
   color: #333;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
 }
 
+/* Cada card ocupa 100% da altura do navegador */
 .card {
+  height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   text-align: center;
-  max-width: 800px;
-  margin-bottom: 120px;
+  padding: 0; /* Removido o padding para o texto encostar nas bordas */
+  scroll-snap-align: start;
+  overflow: hidden; /* Evita rolagens horizontais indesejadas */
 }
 
-/* Efeito de imagem fixa dentro do texto (Parallax) */
+/* Efeito de imagem dentro do texto gigante */
 .text-bg {
-  font-size: 11rem;
+  font-size: clamp(6rem, 22vw, 22rem); /* Aumentado drasticamente para ocupar a largura */
   font-weight: 900;
   text-transform: uppercase;
-  line-height: 0.9;
-  letter-spacing: 2px;
+  line-height: 0.85;
+  letter-spacing: -2px; /* Reduz o espaço entre letras para encaixar palavras grandes */
+  width: 100vw; /* Força o elemento a ocupar a largura total da viewport */
   color: transparent;
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Fixa a imagem no fundo enquanto o texto rola */
+  background-attachment: fixed;
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-/* Portugal - Torre de Belém / Lisboa */
+/* Links das imagens */
 .portugal {
   background-image: url('https://images.unsplash.com/photo-1555881400-74d7acaacd8b?q=80&w=1200');
 }
 
-/* Espanha - Sagrada Família / Barcelona */
 .espanha {
   background-image: url('https://images.unsplash.com/photo-1583422409516-2895a77efded?q=80&w=1200');
 }
 
-/* Brasil - Cristo Redentor / Rio de Janeiro */
 .brasil {
   background-image: url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=1200');
 }
 
-/* Chile - Torres del Paine / Patagônia */
 .chile {
   background-image: url('https://images.unsplash.com/photo-1527004013197-933c4bb611b3?q=80&w=1200');
 }
